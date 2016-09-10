@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  FocusWindow.h
 //  SliderTuner
 //
 //  Created by 杨弘宇 on 10/09/2016.
@@ -8,11 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
-
-@property (readonly) BOOL tunerEnabled;
-
-- (void)tryDisplayTunerHUD;
+@interface FocusWindow : NSWindow
 
 @end
-
