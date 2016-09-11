@@ -6,10 +6,17 @@
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-2" userLabel="File's Owner" customClass="TunerHUDWindowController">
+            <connections>
+                <outlet property="maxTextField" destination="Ayd-b8-lC3" id="7RL-yb-qBq"/>
+                <outlet property="minTextField" destination="LE6-Ga-1G8" id="myi-nj-Duy"/>
+                <outlet property="valueTextField" destination="qKm-VZ-jpt" id="QSL-Gn-LMu"/>
+                <outlet property="window" destination="SF7-gn-HAq" id="Ngy-2M-cGW"/>
+            </connections>
+        </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="SliderTuner" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="SF7-gn-HAq" customClass="TunerHUDWindow">
+        <window title="SliderTuner" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="SF7-gn-HAq" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="90" y="125" width="266" height="125"/>
@@ -135,11 +142,6 @@
                     <constraint firstItem="ssv-6c-Z7I" firstAttribute="leading" secondItem="FhR-o3-7ZN" secondAttribute="leading" constant="20" id="GRi-9I-4Sg"/>
                 </constraints>
             </view>
-            <connections>
-                <outlet property="maxTextField" destination="Ayd-b8-lC3" id="zxQ-nG-KxM"/>
-                <outlet property="minTextField" destination="LE6-Ga-1G8" id="DjW-CI-enb"/>
-                <outlet property="valueTextField" destination="qKm-VZ-jpt" id="aNC-Q3-R7P"/>
-            </connections>
             <point key="canvasLocation" x="260" y="231"/>
         </window>
     </objects>

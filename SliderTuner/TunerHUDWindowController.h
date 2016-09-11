@@ -1,5 +1,5 @@
 //
-//  TunerHUDWindow.h
+//  TunerHUDWindowController.h
 //  SliderTuner
 //
 //  Created by 杨弘宇 on 10/09/2016.
@@ -10,7 +10,7 @@
 
 #import "FocusWindow.h"
 
-@interface TunerHUDWindow : NSPanel
+@interface TunerHUDWindowController : NSWindowController
 
 @property (weak) IBOutlet NSTextField *minTextField;
 @property (weak) IBOutlet NSTextField *maxTextField;

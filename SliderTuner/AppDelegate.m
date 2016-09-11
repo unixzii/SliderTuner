@@ -9,14 +9,14 @@
 #import <Carbon/Carbon.h>
 
 #import "AppDelegate.h"
-#import "TunerHUDWindow.h"
+#import "TunerHUDWindowController.h"
 
 @interface AppDelegate () {
     BOOL _tunerEnabled;
 }
 
 @property (strong) NSStatusItem *statusItem;
-@property (strong) TunerHUDWindow *HUDWindow;
+@property (strong) TunerHUDWindowController *HUDWindowController;
 
 @end
 
@@ -65,6 +65,9 @@ CGEventRef GlobalMouseEventCallBack(CGEventTapProxy proxy, CGEventType type, CGE
     CFRunLoopSourceRef source = CFMachPortCreateRunLoopSource(NULL, port, 0);
     CFRunLoopAddSource(CFRunLoopGetMain(), source, kCFRunLoopCommonModes);
     
+    CFRelease(port);
+    CFRelease(source);
+    
     return noErr;
 }
 
@@ -94,31 +97,24 @@ CGEventRef GlobalMouseEventCallBack(CGEventTapProxy proxy, CGEventType type, CGE
             AXUIElementCopyAttributeValue(pointedElem, CFSTR("AXValue"), (CFTypeRef *) &currentValue);
             AXUIElementCopyAttributeValue(pointedElem, CFSTR("AXFrame"), (CFTypeRef *) &elemFrame);
             
-            if (!self.HUDWindow) {
-                NSNib *nib = [[NSNib alloc] initWithNibNamed:@"TunerHUDWindow" bundle:nil];
-                NSArray *objects;
-                [nib instantiateWithOwner:nil topLevelObjects:&objects];
-                [objects enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                    if ([obj isKindOfClass:[TunerHUDWindow class]]) {
-                        self.HUDWindow = obj;
-                        *stop = YES;
-                    }
-                }];
+            if (!self.HUDWindowController) {
+                self.HUDWindowController = [[TunerHUDWindowController alloc] initWithWindowNibName:@"TunerHUDWindow"];
             }
             
-            self.HUDWindow.minTextField.floatValue = ((__bridge NSNumber *) minValue).floatValue;
-            self.HUDWindow.maxTextField.floatValue = ((__bridge NSNumber *) maxValue).floatValue;
-            self.HUDWindow.valueTextField.floatValue = ((__bridge NSNumber *) currentValue).floatValue;
-            self.HUDWindow.changeAction = ^(id sender) {
+            [self.HUDWindowController showWindow:nil]; // show first to force window to be loaded.
+            
+            self.HUDWindowController.minTextField.floatValue = ((__bridge NSNumber *) minValue).floatValue;
+            self.HUDWindowController.maxTextField.floatValue = ((__bridge NSNumber *) maxValue).floatValue;
+            self.HUDWindowController.valueTextField.floatValue = ((__bridge NSNumber *) currentValue).floatValue;
+            self.HUDWindowController.changeAction = ^(id sender) {
                 float value = [sender floatValue];
                 AXUIElementSetAttributeValue(pointedElem, CFSTR("AXValue"), (CFTypeRef) @(value));
             };
             
-            [self.HUDWindow orderFront:nil];
             mouseLocation.y += 20;
-            [self.HUDWindow setFrameOrigin: mouseLocation];
+            [self.HUDWindowController.window setFrameOrigin: mouseLocation];
             
-            [self.HUDWindow.focusWindow setFrame:[AppDelegate cocoaRectFromCarbonAXValue:elemFrame] display:YES];
+            [self.HUDWindowController.focusWindow setFrame:[AppDelegate cocoaRectFromCarbonAXValue:elemFrame] display:YES];
         }
     }
 }

@@ -13,7 +13,7 @@
 		FA300D6C1D843A050087503D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA300D6B1D843A050087503D /* Assets.xcassets */; };
 		FA300D6F1D843A050087503D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA300D6D1D843A050087503D /* MainMenu.xib */; };
 		FA300D771D843D850087503D /* TunerHUDWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA300D761D843D850087503D /* TunerHUDWindow.xib */; };
-		FA300D7A1D8449160087503D /* TunerHUDWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FA300D791D8449160087503D /* TunerHUDWindow.m */; };
+		FA300D7A1D8449160087503D /* TunerHUDWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA300D791D8449160087503D /* TunerHUDWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +27,8 @@
 		FA300D6E1D843A050087503D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		FA300D701D843A050087503D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA300D761D843D850087503D /* TunerHUDWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TunerHUDWindow.xib; sourceTree = "<group>"; };
-		FA300D781D8449160087503D /* TunerHUDWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TunerHUDWindow.h; sourceTree = "<group>"; };
-		FA300D791D8449160087503D /* TunerHUDWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TunerHUDWindow.m; sourceTree = "<group>"; };
+		FA300D781D8449160087503D /* TunerHUDWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TunerHUDWindowController.h; sourceTree = "<group>"; };
+		FA300D791D8449160087503D /* TunerHUDWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TunerHUDWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +63,8 @@
 			children = (
 				FA300D651D843A050087503D /* AppDelegate.h */,
 				FA300D661D843A050087503D /* AppDelegate.m */,
-				FA300D781D8449160087503D /* TunerHUDWindow.h */,
-				FA300D791D8449160087503D /* TunerHUDWindow.m */,
+				FA300D781D8449160087503D /* TunerHUDWindowController.h */,
+				FA300D791D8449160087503D /* TunerHUDWindowController.m */,
 				FA1781D71D8454A9002675D2 /* FocusWindow.h */,
 				FA1781D81D8454A9002675D2 /* FocusWindow.m */,
 				FA300D6B1D843A050087503D /* Assets.xcassets */,
@@ -157,7 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1781D91D8454A9002675D2 /* FocusWindow.m in Sources */,
-				FA300D7A1D8449160087503D /* TunerHUDWindow.m in Sources */,
+				FA300D7A1D8449160087503D /* TunerHUDWindowController.m in Sources */,
 				FA300D6A1D843A050087503D /* main.m in Sources */,
 				FA300D671D843A050087503D /* AppDelegate.m in Sources */,
 			);

@@ -1,25 +1,25 @@
 //
-//  TunerHUDWindow.m
+//  TunerHUDWindowController.m
 //  SliderTuner
 //
 //  Created by 杨弘宇 on 10/09/2016.
 //  Copyright © 2016 杨弘宇. All rights reserved.
 //
 
-#import "TunerHUDWindow.h"
+#import "TunerHUDWindowController.h"
 
-@interface TunerHUDWindow () <NSWindowDelegate>
+@interface TunerHUDWindowController () <NSWindowDelegate>
 
 @property (strong, readwrite) FocusWindow *focusWindow;
 
 @end
 
-@implementation TunerHUDWindow
+@implementation TunerHUDWindowController
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
+- (void)windowDidLoad {
+    [super windowDidLoad];
     
-    self.delegate = self;
+    self.window.delegate = self;
     
     self.focusWindow = [[FocusWindow alloc] init];
     
@@ -27,8 +27,8 @@
     self.valueTextField.action = @selector(textFieldDidChange:);
 }
 
-- (void)orderFront:(id)sender {
-    [super orderFront:sender];
+- (void)showWindow:(id)sender {
+    [super showWindow:sender];
     
     [self.focusWindow orderFront:sender];
 }
